@@ -24,7 +24,6 @@ cd Ecom-Data-Extractor
 3. Install the required libraries using pip and the requirements.txt file:
 ```bash
 pip install -r requirements.txt
-
 ```
 4. Enter the Amazon URL when prompted
 5. Enter the Desired name for the generated excel file when prompted
