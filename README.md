@@ -29,3 +29,18 @@ pip install -r requirements.txt
 4. Enter the Amazon URL when prompted
 5. Enter the Desired name for the generated excel file when prompted
 6. Now The scraper will collect valuable product information for you
+
+## Libraries Used
+
+The following Python libraries are used in this project:
+ - beautifulsoup4: For web scraping.
+ - requests: For making HTTP requests.
+ - pandas: For data manipulation and analysis.
+ - sqlite3: For working with SQLite database.
+
+All required libraries and their versions are listed in the requirements.txt file.
+
+Happy scraping and database handling! 🚀
+
+
+Feel free to customize it according to your preferences and add more sections or information as needed.
