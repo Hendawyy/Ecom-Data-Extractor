@@ -90,4 +90,4 @@ def scrape_amazon_search(url):
                 # DB.insert_into_db(title, price, rating, product_link, about_points, image_sources, category, sold_count, availability)
 
     df = pd.DataFrame(data)
-    df.to_csv(v.csv_filename, index=False)
+    df.to_csv(v.csv_filename+'.csv', index=False)
