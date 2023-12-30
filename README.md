@@ -6,7 +6,8 @@ Welcome to the Amazon Scraper project! This tool allows you to scrape product de
 
 - Scrape product details such as title, price, and availability.
 - Identify Amazon Prime products.
-- Detect best-seller status and category.
+- Detect best-seller status and category. 
+- Insert scraped data into a database.
 
 ## Installation
 
