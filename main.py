@@ -1,4 +1,3 @@
-import StorePage as SP
 import AmazonScrapper as SCP
 import vars as v
 

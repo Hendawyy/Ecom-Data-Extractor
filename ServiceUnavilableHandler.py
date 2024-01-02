@@ -3,12 +3,12 @@ import requests
 import vars as v
 
 def make_request(url, headers):
-    max_retries = 3  # You can adjust the maximum number of retries
+    max_retries = 5  # You can adjust the maximum number of retries
     retry_count = 0
 
     while retry_count < max_retries:
         try:
-            response = requests.get(url, headers=v.HEADERS)
+            response = requests.get(url, headers=v.HEADERS, timeout=10)
             response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
             return response
         except requests.exceptions.HTTPError as e:

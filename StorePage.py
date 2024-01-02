@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import requests
 import vars as v
 import ServiceUnavilableHandler as SUH
 
@@ -16,7 +15,6 @@ def scrape_page(url):
 
     for product in soup.find_all('div', {'data-asin': True}):
         asin = product['data-asin']
-        price_element = product.find_next('span', {'class': 'a-offscreen'})
         prime_icon = product.find('i', class_='a-icon-prime')
         is_prime = True if prime_icon else False
 
@@ -34,7 +32,6 @@ def scrape_page(url):
 
         product_data.append({
             "data-asin": asin,
-            "price_element": price_element,
             "is_prime": is_prime,
             "is_best_seller": is_best_seller,
             "bs_category": category,
