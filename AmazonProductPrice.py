@@ -49,40 +49,6 @@ def get_product_price(soup):
     return "Price information not available"
 
 
-def extract_price_from_element(price_element):
-    # Check if the price is in the "a-offscreen" span
-    offscreen_span = price_element.find("span", class_="a-offscreen")
-    if offscreen_span:
-        return offscreen_span.text.strip()
-
-    # Check if the price is in a nested span structure
-    nested_span = price_element.find("span", class_="a-price-whole")
-    if nested_span:
-        symbol = price_element.find("span", class_="a-price-symbol").text.strip()
-        whole = nested_span.text.strip()
-        fraction = price_element.find("span", class_="a-price-fraction").text.strip()
-        return f"{symbol}{whole}.{fraction}"
-
-    # Check if the price is in a different structure
-    price_text = price_element.text.strip()
-
-    # Check for savings percentage structure
-    savings_percentage_span = price_element.find("span", class_="savingsPercentage")
-    if savings_percentage_span:
-        # Extract the savings percentage and adjust the price accordingly
-        savings_percentage = savings_percentage_span.text.strip().replace('%', '')
-        original_price_match = re.search(r'(\d[\d,]*)\.?\d{0,2}', price_text)
-        if original_price_match:
-            original_price = original_price_match.group()
-            return calculate_discounted_price(original_price, savings_percentage)
-
-    # If none of the above structures match, use the regular expression
-    match = re.search(r'(\d[\d,]*)\.?\d{0,2}', price_text)
-    if match:
-        return match.group()
-
-    return "Price information not available"
-
 def calculate_discounted_price(original_price, savings_percentage):
     try:
         original_price = float(original_price.replace(',', ''))
