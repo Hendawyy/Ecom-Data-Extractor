@@ -49,15 +49,6 @@ def get_product_price(soup):
     return "Price information not available"
 
 
-def calculate_discounted_price(original_price, savings_percentage):
-    try:
-        original_price = float(original_price.replace(',', ''))
-        savings_percentage = float(savings_percentage)
-        discounted_price = original_price - (original_price * (savings_percentage / 100))
-        return f"{discounted_price:.2f}"
-    except ValueError:
-        return "Price information not available"
-
 
 def extract_size_chart(soup):
     size_chart_div = soup.find("div", {"id": "fit-sizechartv2-0"})
